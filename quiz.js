@@ -2,14 +2,8 @@
 function checkAnswer() {
     // Define the correct answer
     const correctAnswer = "4";
-    
-    // Retrieve the selected answer from the radio buttons
     const userAnswer = document.querySelector('input[name="quiz"]:checked');
-    
-    // Get the feedback element to display messages
     const feedbackElement = document.getElementById("feedback");
-    
-    // Check if an answer was selected
     if (userAnswer) {
         // Compare the user's answer with the correct answer
         if (userAnswer.value === correctAnswer) {
@@ -25,6 +19,4 @@ function checkAnswer() {
         feedbackElement.style.color = "orange"; // Set feedback color to orange for no selection
     }
 }
-
-// Add an event listener to the "Submit Answer" button to trigger the checkAnswer function
 document.getElementById("submit-answer").addEventListener("click", checkAnswer);
