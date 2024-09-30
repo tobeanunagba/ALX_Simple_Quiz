@@ -2,10 +2,10 @@ function checkAnswer() {
     // The correct answer for the quiz
     const correctAnswer = "4";
 
-    // Retrieve the user's selected answer
+    // Retrieve the user's selected answer using querySelector to find the checked radio input
     const userAnswer = document.querySelector('input[name="quiz"]:checked');
 
-    // Access the feedback element
+    // Get the feedback element to display messages
     const feedbackElement = document.getElementById("feedback");
 
     // Check if the user has selected an answer
