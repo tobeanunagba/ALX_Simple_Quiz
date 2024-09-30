@@ -2,21 +2,31 @@
 function checkAnswer() {
     // Define the correct answer
     const correctAnswer = "4";
-    const userAnswer = document.querySelector('input[name="quiz"]:checked');
+
+    // Retrieve the selected answer from the radio buttons
+    const userAnswerElement = document.querySelector('input[name="quiz"]:checked');
+    
+    // Get the feedback element to display messages
     const feedbackElement = document.getElementById("feedback");
-    if (userAnswer) {
+
+    // Check if an answer was selected
+    if (userAnswerElement) {
+        const userAnswer = userAnswerElement.value;
+        
         // Compare the user's answer with the correct answer
-        if (userAnswer.value === correctAnswer) {
+        if (userAnswer === correctAnswer) {
             feedbackElement.textContent = "Correct! Well done.";
-            feedbackElement.style.color = "green"; // Set feedback color to green for correct answer
+            feedbackElement.style.color = "green"; // Correct answer feedback
         } else {
             feedbackElement.textContent = "That's incorrect. Try again!";
-            feedbackElement.style.color = "red"; // Set feedback color to red for incorrect answer
+            feedbackElement.style.color = "red"; // Incorrect answer feedback
         }
     } else {
-        // If no answer was selected, prompt the user to select one
+        // If no answer is selected, prompt the user to select one
         feedbackElement.textContent = "Please select an answer!";
-        feedbackElement.style.color = "orange"; // Set feedback color to orange for no selection
+        feedbackElement.style.color = "orange"; // No answer selected feedback
     }
 }
+
+// Add an event listener to the "Submit Answer" button
 document.getElementById("submit-answer").addEventListener("click", checkAnswer);
